@@ -6,30 +6,27 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     // generate user seed data
     queryInterface.bulkInsert('Users', [{
-      // id: 1,
+      id: 1,
       email: 'root@example.com',
       password: bcrypt.hashSync('12345678', bcrypt.genSaltSync(10), null),
       isAdmin: true,
       name: 'root',
-      image: faker.image.imageUrl(),
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      // id: 2,
+      id: 2,
       email: 'user1@example.com',
       password: bcrypt.hashSync('12345678', bcrypt.genSaltSync(10), null),
       isAdmin: false,
       name: 'user1',
-      image: `https://loremflickr.com/320/240`,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
-      // id: 3,
+      id: 3,
       email: 'user2@example.com',
       password: bcrypt.hashSync('12345678', bcrypt.genSaltSync(10), null),
       isAdmin: false,
       name: 'user2',
-      image: `https://loremflickr.com/320/240`,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {})
@@ -55,10 +52,8 @@ module.exports = {
           tel: faker.phone.phoneNumber(),
           address: faker.address.streetAddress(),
           opening_hours: '08:00',
-          // image: faker.image.imageUrl(),
-          image: `https://loremflickr.com/320/240/restaurant,food/?random=${Math.random() * 100}`,
+          image: faker.image.imageUrl(),
           description: faker.lorem.text(),
-          viewCounts: 0,
           createdAt: new Date(),
           updatedAt: new Date(),
           CategoryId: Math.floor(Math.random() * 5) + 1
@@ -71,8 +66,8 @@ module.exports = {
         ({
           id: i + 1,
           text: faker.lorem.sentence(),
-          UserId: Math.floor(Math.random() * 3) + 1,
-          RestaurantId: i % 50 + 1,
+          userId: Math.floor(Math.random() * 3) + 1,
+          restaurantId: i % 50 + 1,
           createdAt: new Date(),
           updatedAt: new Date()
         })
